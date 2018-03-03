@@ -101,9 +101,11 @@ const testCmd = (rl, id) => {
 				respuesta=(respuesta || "").trim();
 				if(respuesta.toLowerCase()===quiz.answer.toLowerCase()){
 					biglog('CORRECTO', 'green');
+					console.log("correct");
 				}
 				else{
 					biglog('INCORRECTO', 'red');
+					console.log("incorrect");
 				}
 				rl.prompt();
 			});
@@ -150,6 +152,7 @@ rl.question(colorize(`${quiz.question}: `, 'red'), respuesta => {
 	respuesta=(respuesta || "").trim();
 	if(respuesta.toLowerCase()===quiz.answer.toLowerCase()){
 		biglog('CORRECTO', 'green');
+		console.log("correct");
 		score++;
 		preguntas.splice(id,1);
 		if(preguntas.length==0){
@@ -165,6 +168,8 @@ rl.question(colorize(`${quiz.question}: `, 'red'), respuesta => {
 	}
 	else{
 		biglog('INCORRECTO', 'red');
+		console.log("incorrect");
+		console.log("Fin");
 		console.log("Tu puntuación fue: ");
 		biglog(score, 'magenta');
 		rl.prompt();
